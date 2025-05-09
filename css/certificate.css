@@ -1,0 +1,405 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+.certificate-container {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 24px 32px 32px 32px; /* Add top, right, bottom, left padding for visible margin */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* border-bottom: 1px solid #000; */ /* Removed as per request */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.company-info h1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.company-info p {
+    font-size: 9px;
+    margin: 2px 0;
+    line-height: 1.5;
+}
+
+.logos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.logo-agile {
+    max-width: 150px;
+    margin-bottom: 5px;
+    border: 1px solid #cccccc; /* Light grayish border */
+}
+
+.logo-asus {
+    max-width: 120px;
+    max-height: 50px;
+    border: 1px solid #cccccc; /* Light grayish border */
+    margin-bottom: 5px;
+}
+
+.asus-placeholder {
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid #000;
+    padding: 5px;
+    display: inline-block;
+}
+
+.date-section {
+    text-align: right;
+    font-size: 10px;
+    margin-top: 20px; /* Added margin-top */
+}
+.date-section p {
+    margin: 0;
+}
+
+
+.recipient-info {
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.recipient-info p {
+    margin: 5px 0;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin: 0;
+}
+
+.reference-info {
+    font-size: 11px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.products-table-section {
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+#certificateProductsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+#certificateProductsTable th,
+#certificateProductsTable td {
+    border: 1px solid #000;
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#certificateProductsTable th {
+    background-color: yellow; /* Changed to yellow */
+    font-weight: bold;
+    text-align: center; /* Added to center text */
+    vertical-align: middle; /* Added to vertically center text */
+}
+
+.signature-footer-flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    min-height: 200px;
+}
+
+.signatures-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 5%;
+    font-size: 10px;
+}
+
+.signature-block {
+    width: 45%;
+}
+
+.signature-image-placeholder {
+    height: 60px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
+}
+
+.signer-name {
+    font-weight: bold;
+    margin: 5px 0 2px 0;
+}
+.signer-title {
+    margin: 0;
+}
+
+
+.cert-footer {
+    border-top: 1px solid blue;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 8px;
+    margin-top: auto;
+    line-height: 1.3;
+}
+.cert-footer p {
+    margin: 2px 0;
+    
+}
+
+#certificateDate,
+#recipientCompanyName,
+#recipientCompanyAddress,
+#purchaseOrderNumberRef,
+#salesOrderNumberRef,
+#warrantyRecipientCompanyName {
+    font-weight: bold;
+}
+
+/* --- Certificate Print and Download Button Styles --- */
+@media print {
+    @page {
+        size: 216mm 330mm; /* Short bond paper size */
+        margin: 10mm; /* Add page margin for print */
+    }
+    
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        width: 216mm !important;
+        height: 330mm !important;
+        border: 0 !important;
+        outline: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .certificate-container {
+        margin: 8mm !important; /* Add margin to create breathing room */
+        padding: 12mm 15mm !important; /* Balanced padding for content */
+        box-shadow: none !important;
+        background: #fff !important;
+        width: calc(100% - 16mm) !important; /* Account for margins */
+        height: calc(100% - 16mm) !important; /* Account for margins */
+        min-height: unset !important;
+        max-height: 310mm !important; /* Reduced to avoid overflow */
+        display: block !important;
+        position: static !important;
+        border: 0 none !important;
+        outline: 0 !important;
+        box-sizing: border-box !important;
+        page-break-after: avoid !important; /* Prevent page break after container */
+        page-break-inside: avoid !important; /* Avoid breaking inside the container */
+    }
+    
+    #pdf-certificate-content {
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        max-height: 310mm !important; /* Ensure content fits on one page */
+        overflow: hidden !important;
+    }
+    
+    /* More aggressive border removal */
+    html *, body *, .certificate-container, .certificate-container * {
+        border: 0 !important;
+        outline: 0 !important;
+    }
+
+    /* Force no border on all elements */
+    *:before, *:after {
+        border: 0 !important;
+        outline: 0 !important;
+    }
+    
+    /* Restore only specific borders we want */
+    #certificateProductsTable th,
+    #certificateProductsTable td {
+        border: 1px solid #000 !important;
+    }
+    
+    .cert-footer {
+        border-top: 1px solid blue !important;
+    }
+    
+    /* Hide any border on images */
+    img {
+        border: 0 !important;
+        outline: 0 !important;
+    }
+    
+    /* Compress vertical spacing for PDF output */
+    .cert-header {
+        margin-bottom: 10px !important;
+        padding-bottom: 5px !important;
+    }
+    
+    .recipient-info {
+        margin-bottom: 10px !important;
+    }
+    
+    .title-section, .reference-info {
+        margin-bottom: 10px !important;
+    }
+    
+    .products-table-section {
+        margin-bottom: 15px !important;
+    }
+    
+    .signatures-section {
+        margin-top: 15px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .cert-footer {
+        padding-top: 5px !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Keep other print settings */
+    .pdf-hide {
+        display: none !important;
+    }
+    
+    body > *:not(.certificate-container) {
+        display: none !important;
+    }
+    
+    table {
+        width: 100% !important;
+        table-layout: fixed !important;
+        word-break: break-word !important;
+    }
+    
+    th, td {
+        word-break: break-word !important;
+        font-size: 10px !important; /* Reduced font size */
+        padding: 4px !important; /* Reduced padding */
+    }
+    
+    /* Force avoid page breaks within key elements */
+    .signature-block, .company-info, .logos, .reference-info, 
+    .title-section, .recipient-info, .products-table-section {
+        page-break-inside: avoid !important;
+    }
+}
+.download-btn-topright {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 1000;
+    text-align: right;
+}
+#downloadPdfBtn {
+    background: #28a745;
+    color: #fff;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    min-width: 140px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#downloadPdfBtn i {
+    margin-right: 6px;
+}
+
+#pdf-certificate-content {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-height: unset;
+    height: unset;
+    overflow: visible;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    page-break-inside: avoid;
+}
+
+#pdf-certificate-content .cert-footer {
+    margin-top: 0;
+}
+
+/* Additional PDF layout optimizations */
+.certificate-container.for-pdf {
+    border: none;
+    padding: 12mm; /* Increased padding for better appearance */
+    margin: 10mm; /* Add margin for better spacing */
+    width: 190mm; /* Adjusted for margins */
+    min-height: auto;
+    max-height: 310mm; /* Reduced to ensure no second page */
+    overflow: hidden;
+}
+
+/* Optimize table for PDF layout */
+@media print, (max-width: 800px) {
+    #certificateProductsTable th,
+    #certificateProductsTable td {
+        padding: 4px;
+        font-size: 9px;
+    }
+    
+    .signature-block {
+        font-size: 9px;
+        line-height: 1.2;
+    }
+    
+    .cert-footer {
+        font-size: 7px;
+        line-height: 1.2;
+        padding-top: 5px;
+        margin-top: 0;
+    }
+    
+    /* Optimize spacing for elements when margins are added */
+    .cert-header {
+        margin-bottom: 8px !important;
+    }
+    
+    .title-section, .reference-info, .recipient-info {
+        margin-bottom: 8px !important;
+    }
+    
+    .products-table-section {
+        margin-bottom: 10px !important;
+    }
+    
+    .signatures-section {
+        margin-top: 10px !important;
+        margin-bottom: 8px !important;
+    }
+}
+

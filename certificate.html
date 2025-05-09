@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Certificate</title>
+    <link rel="stylesheet" href="css/certificate.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>    <div class="certificate-container">
+        <div id="pdf-certificate-content">
+            <header class="cert-header">
+                <div class="company-info">
+                    <h1>AGILE TECHFRONTIER CORPORATION</h1>
+                    <p>Makati Branch: 8735 Paseo De Roxas corner Makati Avenue, Makati City, Philippines 1226</p>
+                    <p>Southwoods Branch: VCC Building, Blk 16 Lot 2 San Agustin Village, San Francisco, Biñan, Laguna</p>
+                    <p>Email: info@agiletechfrontier.com</p>
+                </div>
+                <div class="logos">
+                    <img src="img/agiletechfrontier.jpg" alt="Agile Techfrontier Logo" class="logo-agile">
+                    <img src="img/asus.jpg" alt="ASUS Authorized Service Center" class="logo-asus">
+
+                    <div class="date-section">
+                        <p><span id="certificateDate">DATE</span></p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="recipient-info">
+                <p>To:</p>
+                <p><span id="recipientCompanyName">COMPANY NAME</span></p>
+                <p><span id="recipientCompanyAddress">ADDRESS OF THE COMPANY</span></p>
+            </section>
+
+            <section class="title-section">
+                <h2>WARRANTY CERTIFICATE</h2>
+            </section>
+
+            <section class="reference-info">
+                <p>
+                    In reference to P.O. #: <span id="purchaseOrderNumberRef">PURCHASED ORDER NUMBER</span> S.O. #: <span id="salesOrderNumberRef">SALES ORDER NUMBER</span>,
+                    <b>AGILE TECHFRONTIER CORPORATION</b> will provide the following warranty to
+                    <span id="warrantyRecipientCompanyName">COMPANY NAME</span>.
+                </p>
+            </section>
+
+            <section class="products-table-section">
+                <table id="certificateProductsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>PRODUCT DESCRIPTION</th>
+                            <th>QTY</th>
+                            <th>SERIAL NOS.</th>
+                            <th>WARRANTY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Product rows will be dynamically inserted here -->
+                        <tr>
+                            <td>(PRODUCT NUMBER)</td>
+                            <td>(PRODUCT DESCRIPTION)</td>
+                            <td>(QUANTITY)</td>
+                            <td>(SERIAL NUMBERS)</td>
+                            <td>(WARRANTY)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="signatures-section">
+                <div class="signature-block">
+                    <p>Prepared by:</p> <br>
+                    <p class="signer-name">RHEA AGUILAR</p>
+                    <p class="signer-title">Technical Sales Engineer</p>
+                </div>
+                <div class="signature-block">
+                    <p>Approved by:</p> <br>
+                    <p class="signer-name">RICHARD FELIX DELA CRUZ</p>
+                    <p class="signer-title">VP Operations and I.T.P</p>
+                </div> 
+            </section>
+
+            <footer class="cert-footer">
+                <p>508 Peninsula Court Building, Paseo de Roxas Corner Makati Avenue</p>
+                <p>Barangay Bel-Air, Makati City, Philippines 1226</p>
+                <p>Tel. no. 02 8297 0498 | <a href="http://www.agiletechfrontier.com">www.agiletechfrontier.com</a> | info@agiletechfrontier.com</p>
+            </footer>
+        </div>
+        <div class="pdf-hide download-btn-topright">
+            <button id="downloadPdfBtn">
+                <i class='bx bx-download' style="font-size:20px;vertical-align:middle;margin-right:6px;"></i>Download as PDF
+            </button>
+        </div>
+    </div>
+    <!-- Removed inline <style> block, CSS is now in css/certificate.css -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script/certificate.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Certificate Form</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Corrected path -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>WARRANTY CERTIFICATE FORM</h1>
+
+        <div class="form-section">
+            <h2><i class='bx bxs-building-house' style="vertical-align:middle;margin-right:6px;"></i>Company Information</h2>
+            <label for="companyName"><i class='bx bxs-user' style="vertical-align:middle;margin-right:4px;"></i>Company Name:</label>
+            <input type="text" id="companyName" name="companyName">
+
+            <label for="companyAddress"><i class='bx bxs-map' style="vertical-align:middle;margin-right:4px;"></i>Address of the Company:</label>
+            <textarea id="companyAddress" name="companyAddress" rows="3"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2><i class='bx bx-receipt' style="vertical-align:middle;margin-right:6px;"></i>Order Details</h2>
+
+            <label for="purchasedNumber"><i class='bx bx-barcode' style="vertical-align:middle;margin-right:4px;"></i>Purchase Order Number (PO Number):</label> <!-- Changed ID -->
+            <input type="text" id="purchasedNumber" name="purchaseOrderNumber">
+
+            <div class="order-details-row">
+                <div>
+                    <label for="soNumber"><i class='bx bx-barcode' style="vertical-align:middle;margin-right:4px;"></i>Sales Order Number (SO Number):</label> <!-- Changed ID -->
+                    <input type="text" id="soNumber" name="salesOrderNumber">
+                </div>
+                <div>
+                    <label for="formDate"><i class='bx bx-calendar' style="vertical-align:middle;margin-right:4px;"></i>Date:</label> <!-- Changed ID -->
+                    <input type="text" id="formDate" name="date"> <!-- Changed type to text for script filling, or script can parse/format date -->
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section" id="product-details-section">
+            <h2><i class='bx bx-package' style="vertical-align:middle;margin-right:6px;"></i>Product Details</h2>
+            <div class="table-actions">
+                <button type="button" id="addProductBtn"><i class='bx bx-plus' style="vertical-align:middle;margin-right:4px;"></i>Add Product</button> <!-- Changed to ID, removed onclick -->
+            </div>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Description</th>
+                        <th>Qty</th>
+                        <th>Serial Nos.</th>
+                        <th>Warranty</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Product rows will be added here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button type="button" onclick="submitForm()"><i class='bx bx-file' style="vertical-align:middle;margin-right:6px;"></i>Generate Warranty Certificate</button>
+        </div>
+    </div>
+
+    <script>
+        // Remove Notyf and use custom sticky toast at the top with close icon
+        window.showCustomToast = function(message, type = 'error') {
+            let toast = document.getElementById('customStickyToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'customStickyToast';
+                toast.innerHTML = '<span id="customToastMsg"></span><button id="customToastClose" aria-label="Close">&times;</button>';
+                document.body.appendChild(toast);
+                document.getElementById('customToastClose').onclick = function() {
+                    toast.classList.remove('show');
+                    setTimeout(() => { toast.style.display = 'none'; }, 500);
+                };
+            }
+            document.getElementById('customToastMsg').textContent = message;
+            if (type === 'success') {
+                toast.style.background = '#28a745';
+                toast.style.color = '#fff';
+            } else {
+                toast.style.background = '#ff3333';
+                toast.style.color = '#fff';
+            }
+            toast.style.display = 'flex';
+            // Instantly show
+            setTimeout(() => { toast.classList.add('show'); toast.classList.remove('hide'); }, 10);
+            // Fade out after 3 seconds
+            clearTimeout(window._customToastTimeout);
+            window._customToastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                setTimeout(() => { toast.style.display = 'none'; toast.classList.remove('hide'); }, 300);
+            }, 3000);
+        };
+    </script>
+    <script src="script/script.js"></script> <!-- Corrected path -->
+</body>
+</html>
