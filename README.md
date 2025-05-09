@@ -30,6 +30,10 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
+## 📝 Test it out
+
+Test our Form-Cert-PDF here: https://lncadrnn.github.io/Form-Cert-PDF/Form
+
 ## 📧 Contact Information
 
 - 👤 **Author:** Lance Adrian Acal  
