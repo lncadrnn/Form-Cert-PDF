@@ -10,6 +10,8 @@ This project was built to streamline the creation of warranty certificates. Inst
 
 > 🧾 **Note:** This tool is intentionally **manual-input only**, based on the client's specific request. All fields (client data and product entries) are to be typed manually — no automation or database connection is used.
 
+### ⚠️ NOT YET MOBILE RESPONSIVE
+
 ---
 
 ## 🛠️ Technologies Used
