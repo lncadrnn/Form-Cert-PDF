@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warranty Certificate</title>
-    <link rel="stylesheet" href="css/certificate.css">
+    <link rel="stylesheet" href="../css/certificate.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
-<body>    <div class="certificate-container">
+<body>    
+    <div class="certificate-container">
         <div id="pdf-certificate-content">
             <header class="cert-header">
                 <div class="company-info">
@@ -17,8 +18,8 @@
                     <p>Email: info@agiletechfrontier.com</p>
                 </div>
                 <div class="logos">
-                    <img src="img/agiletechfrontier.jpg" alt="Agile Techfrontier Logo" class="logo-agile">
-                    <img src="img/asus.jpg" alt="ASUS Authorized Service Center" class="logo-asus">
+                    <img src="../img/agiletechfrontier.jpg" alt="Agile Techfrontier Logo" class="logo-agile">
+                    <img src="../img/asus.jpg" alt="ASUS Authorized Service Center" class="logo-asus">
 
                     <div class="date-section">
                         <p><span id="certificateDate">DATE</span></p>
@@ -87,6 +88,11 @@
                 <p>Tel. no. 02 8297 0498 | <a href="http://www.agiletechfrontier.com">www.agiletechfrontier.com</a> | info@agiletechfrontier.com</p>
             </footer>
         </div>
+        <div class="pdf-hide back-btn-topleft">
+            <button id="backBtn" onclick="window.location.href='../form.html'">
+                <i class='bx bx-arrow-back' style="font-size:20px;vertical-align:middle;margin-right:6px;"></i>Back to Form
+            </button>
+        </div>
         <div class="pdf-hide download-btn-topright">
             <button id="downloadPdfBtn">
                 <i class='bx bx-download' style="font-size:20px;vertical-align:middle;margin-right:6px;"></i>Download as PDF
@@ -95,6 +101,6 @@
     </div>
     <!-- Removed inline <style> block, CSS is now in css/certificate.css -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="script/certificate.js"></script>
+    <script src="../script/certificate.js"></script>
 </body>
 </html>
