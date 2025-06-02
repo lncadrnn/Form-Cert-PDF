@@ -3,66 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warranty Certificate Form</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Corrected path -->
+    <title>Warranty Certificate Generator</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>WARRANTY CERTIFICATE FORM</h1>
-
-        <div class="form-section">
-            <h2><i class='bx bxs-building-house' style="vertical-align:middle;margin-right:6px;"></i>Company Information</h2>
-            <label for="companyName"><i class='bx bxs-user' style="vertical-align:middle;margin-right:4px;"></i>Company Name:</label>
-            <input type="text" id="companyName" name="companyName">
-
-            <label for="companyAddress"><i class='bx bxs-map' style="vertical-align:middle;margin-right:4px;"></i>Address of the Company:</label>
-            <textarea id="companyAddress" name="companyAddress" rows="3"></textarea>
-        </div>
-
-        <div class="form-section">
-            <h2><i class='bx bx-receipt' style="vertical-align:middle;margin-right:6px;"></i>Order Details</h2>
-
-            <label for="purchasedNumber"><i class='bx bx-barcode' style="vertical-align:middle;margin-right:4px;"></i>Purchase Order Number (PO Number):</label> <!-- Changed ID -->
-            <input type="text" id="purchasedNumber" name="purchaseOrderNumber">
-
-            <div class="order-details-row">
-                <div>
-                    <label for="soNumber"><i class='bx bx-barcode' style="vertical-align:middle;margin-right:4px;"></i>Sales Order Number (SO Number):</label> <!-- Changed ID -->
-                    <input type="text" id="soNumber" name="salesOrderNumber">
-                </div>
-                <div>
-                    <label for="formDate"><i class='bx bx-calendar' style="vertical-align:middle;margin-right:4px;"></i>Date:</label> <!-- Changed ID -->
-                    <input type="text" id="formDate" name="date"> <!-- Changed type to text for script filling, or script can parse/format date -->
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <div class="logo-icon">
+                            <i class='bx bx-shield-check'></i>
+                        </div>
+                        <div class="logo-text">
+                            <h1>Warranty Certificate</h1>
+                            <p>Professional Certificate Generator</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="form-section" id="product-details-section">
-            <h2><i class='bx bx-package' style="vertical-align:middle;margin-right:6px;"></i>Product Details</h2>
-            <div class="table-actions">
-                <button type="button" id="addProductBtn"><i class='bx bx-plus' style="vertical-align:middle;margin-right:4px;"></i>Add Product</button> <!-- Changed to ID, removed onclick -->
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <div class="form-wrapper">
+                    <!-- Progress Indicator -->
+                    <div class="progress-indicator">
+                        <div class="progress-step active">
+                            <div class="step-number">1</div>
+                            <span>Company Info</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step">
+                            <div class="step-number">2</div>
+                            <span>Order Details</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step">
+                            <div class="step-number">3</div>
+                            <span>Products</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Card -->
+                    <div class="form-card">
+                        <!-- Company Information Section -->
+                        <div class="form-section active" data-step="1">
+                            <div class="section-header">
+                                <div class="section-icon">
+                                    <i class='bx bxs-building-house'></i>
+                                </div>
+                                <div class="section-title">
+                                    <h2>Company Information</h2>
+                                    <p>Enter the company details for the warranty certificate</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="companyName">
+                                        <i class='bx bxs-user'></i>
+                                        Company Name
+                                    </label>
+                                    <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="companyAddress">
+                                        <i class='bx bxs-map'></i>
+                                        Company Address
+                                    </label>
+                                    <textarea id="companyAddress" name="companyAddress" rows="3" placeholder="Enter complete company address"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Details Section -->
+                        <div class="form-section" data-step="2">
+                            <div class="section-header">
+                                <div class="section-icon">
+                                    <i class='bx bx-receipt'></i>
+                                </div>
+                                <div class="section-title">
+                                    <h2>Order Details</h2>
+                                    <p>Provide the purchase and sales order information</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="purchasedNumber">
+                                        <i class='bx bx-barcode'></i>
+                                        Purchase Order Number (PO)
+                                    </label>
+                                    <input type="text" id="purchasedNumber" name="purchaseOrderNumber" placeholder="Enter PO number">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="soNumber">
+                                        <i class='bx bx-barcode'></i>
+                                        Sales Order Number (SO)
+                                    </label>
+                                    <input type="text" id="soNumber" name="salesOrderNumber" placeholder="Enter SO number">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formDate">
+                                        <i class='bx bx-calendar'></i>
+                                        Date
+                                    </label>
+                                    <input type="date" id="formDate" name="date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Details Section -->
+                        <div class="form-section" data-step="3">
+                            <div class="section-header">
+                                <div class="section-icon">
+                                    <i class='bx bx-package'></i>
+                                </div>
+                                <div class="section-title">
+                                    <h2>Product Details</h2>
+                                    <p>Add all products included in this warranty certificate</p>
+                                </div>
+                            </div>
+                            
+                            <div class="products-container">
+                                <div class="table-actions">
+                                    <button type="button" id="addProductBtn" class="btn btn-secondary">
+                                        <i class='bx bx-plus'></i>
+                                        Add Product
+                                    </button>
+                                </div>
+                                
+                                <div class="table-container">
+                                    <table id="productTable" class="products-table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Product Description</th>
+                                                <th>Qty</th>
+                                                <th>Serial Numbers</th>
+                                                <th>Warranty</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="productTableBody">
+                                            <!-- Product rows will be added here by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="form-navigation">
+                            <button type="button" id="prevBtn" class="btn btn-outline" style="display: none;">
+                                <i class='bx bx-chevron-left'></i>
+                                Previous
+                            </button>
+                            <button type="button" id="nextBtn" class="btn btn-primary">
+                                Next
+                                <i class='bx bx-chevron-right'></i>
+                            </button>
+                            <button type="button" id="generateBtn" class="btn btn-success" style="display: none;" onclick="submitForm()">
+                                <i class='bx bx-file-plus'></i>
+                                Generate Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <table id="productTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Product Description</th>
-                        <th>Qty</th>
-                        <th>Serial Nos.</th>
-                        <th>Warranty</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="productTableBody">
-                    <!-- Product rows will be added here by JavaScript -->
-                </tbody>
-            </table>
-        </div>
-
-        <div class="button-container">
-            <button type="button" onclick="submitForm()"><i class='bx bx-file' style="vertical-align:middle;margin-right:6px;"></i>Generate Warranty Certificate</button>
-        </div>
+        </main>
     </div>
 
     <script>
@@ -97,18 +214,7 @@
                 toast.classList.add('hide');
                 setTimeout(() => { toast.style.display = 'none'; toast.classList.remove('hide'); }, 300);
             }, 3000);
-        };
-    </script>
-    <script src="script/script.js"></script> <!-- Corrected path -->
-    <script>
-        // Update the submitForm function to redirect to the new certificate path
-        function submitForm() {
-            // ...existing form data collection code...
-            // Save form data to localStorage as before
-            // ...existing code...
-            // Redirect to the new certificate.html location
-            window.location.href = 'certificate/certificate.html';
-        }
-    </script>
+        };    </script>
+    <script src="script/script.js"></script>
 </body>
 </html>

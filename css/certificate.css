@@ -1,134 +1,266 @@
-body {
-    font-family: Arial, sans-serif;
+/* Modern Certificate Design - Complete Redesign */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables for Design System */
+:root {
+    --primary-color: #8b5cf6;        /* Purple */
+    --primary-hover: #7c3aed;        /* Darker purple */
+    --secondary-color: #f97316;      /* Orange */
+    --secondary-hover: #ea580c;      /* Darker orange */
+    --accent-color: #06b6d4;         /* Cyan accent */
+    --background: #fafafa;           /* Light gray */
+    --surface: #ffffff;
+    --surface-hover: #f8fafc;
+    --text-primary: #1f2937;         /* Dark gray */
+    --text-secondary: #6b7280;       /* Medium gray */
+    --text-muted: #9ca3af;           /* Light gray */
+    --border: #e5e7eb;
+    --border-hover: #d1d5db;
+    --error: #ef4444;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+}
+
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #fff;
-    color: #000;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    font-weight: 400;
+    padding: 2rem 0;
 }
 
 .certificate-container {
     width: 210mm;
     min-height: 297mm;
-    margin: 20px auto;
-    padding: 24px 32px 32px 32px; /* Add top, right, bottom, left padding for visible margin */
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
+    padding: 40px 48px;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
 }
 
+/* Modern Header Design */
 .cert-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    /* border-bottom: 1px solid #000; */ /* Removed as per request */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.cert-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 2px;
 }
 
 .company-info h1 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 0 5px 0;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    color: var(--primary-color);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
 }
 
 .company-info p {
-    font-size: 9px;
-    margin: 2px 0;
-    line-height: 1.5;
+    font-size: 12px;
+    margin: 6px 0;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 .logos {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    gap: 16px;
 }
 
 .logo-agile {
-    max-width: 150px;
-    margin-bottom: 5px;
-    border: 1px solid #cccccc; /* Light grayish border */
+    max-width: 180px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease;
 }
 
 .logo-asus {
-    max-width: 120px;
-    max-height: 50px;
-    border: 1px solid #cccccc; /* Light grayish border */
-    margin-bottom: 5px;
-}
-
-.asus-placeholder {
-    font-size: 10px;
-    font-weight: bold;
-    border: 1px solid #000;
-    padding: 5px;
-    display: inline-block;
+    max-width: 150px;
+    max-height: 60px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease;
 }
 
 .date-section {
     text-align: right;
-    font-size: 10px;
-    margin-top: 20px; /* Added margin-top */
+    font-size: 12px;
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, var(--surface-hover) 0%, #e2e8f0 100%);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
 }
+
 .date-section p {
     margin: 0;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-
+/* Recipient Information */
 .recipient-info {
-    margin-bottom: 20px;
-    font-size: 12px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    background: linear-gradient(135deg, var(--surface-hover) 0%, #f1f5f9 100%);
+    padding: 24px;
+    border-radius: var(--radius-xl);
+    border-left: 6px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
 }
 
 .recipient-info p {
-    margin: 5px 0;
+    margin: 8px 0;
+    line-height: 1.6;
 }
 
+.recipient-info p:first-child {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+/* Title Section */
 .title-section {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 20px 0;
 }
 
 .title-section h2 {
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary-color);
     margin: 0;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
+.title-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* Reference Information */
 .reference-info {
-    font-size: 11px;
-    margin-bottom: 20px;
-    line-height: 1.4;
+    font-size: 13px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    padding: 24px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
 }
 
+.reference-info b {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Products Table */
 .products-table-section {
-    margin-bottom: 30px;
+    margin-bottom: 48px;
     flex-grow: 1;
 }
 
 #certificateProductsTable {
     width: 100%;
     border-collapse: collapse;
-    font-size: 10px;
+    font-size: 12px;
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
 }
 
 #certificateProductsTable th,
 #certificateProductsTable td {
-    border: 1px solid #000;
-    padding: 6px;
+    border: 1px solid var(--border-hover);
+    padding: 16px 12px;
     text-align: left;
     vertical-align: top;
 }
 
 #certificateProductsTable th {
-    background-color: yellow; /* Changed to yellow */
-    font-weight: bold;
-    text-align: center; /* Added to center text */
-    vertical-align: middle; /* Added to vertically center text */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: var(--surface);
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
 }
 
+#certificateProductsTable td {
+    background: var(--surface);
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+}
+
+#certificateProductsTable tbody tr:nth-child(even) td {
+    background: var(--surface-hover);
+}
+
+#certificateProductsTable tbody tr:hover td {
+    background: #e0f2fe;
+}
+
+/* Signatures Section */
 .signature-footer-flex {
     display: flex;
     flex-direction: column;
@@ -139,41 +271,723 @@ body {
 .signatures-section {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    margin-bottom: 5%;
-    font-size: 10px;
+    margin-top: 48px;
+    margin-bottom: 32px;
+    font-size: 12px;
+    gap: 40px;
 }
 
 .signature-block {
     width: 45%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--surface-hover) 0%, #f1f5f9 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.signature-block p:first-child {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
 }
 
 .signature-image-placeholder {
     height: 60px;
-    border-bottom: 1px solid #000;
-    margin-bottom: 5px;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, transparent 0%, var(--surface-hover) 100%);
 }
 
 .signer-name {
-    font-weight: bold;
-    margin: 5px 0 2px 0;
+    font-weight: 700;
+    margin: 8px 0 4px 0;
+    color: var(--text-primary);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
+
 .signer-title {
     margin: 0;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-style: italic;
 }
 
+/* Footer */
+.cert-footer {
+    border-top: 3px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--surface-hover) 0%, #f1f5f9 100%);
+    padding: 20px;
+    text-align: center;
+    font-size: 10px;
+    margin-top: auto;
+    line-height: 1.5;
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+}
+
+.cert-footer p {
+    margin: 4px 0;
+}
+
+.cert-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cert-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Dynamic field highlighting */
+#certificateDate,
+#recipientCompanyName,
+#recipientCompanyAddress,
+#purchaseOrderNumberRef,
+#salesOrderNumberRef,
+#warrantyRecipientCompanyName {
+    font-weight: 700;
+    color: var(--primary-color);
+    background: linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.1) 100%);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+/* Modern Button Styles */
+.back-btn-topleft {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    z-index: 1000;
+}
+
+.download-btn-topright {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 1000;
+}
+
+#backBtn,
+#downloadPdfBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+}
+
+#backBtn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: white;
+}
+
+#backBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+    background: linear-gradient(135deg, var(--primary-hover) 0%, #1d4ed8 100%);
+}
+
+#downloadPdfBtn {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover) 100%);
+    color: white;
+}
+
+#downloadPdfBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+    background: linear-gradient(135deg, var(--secondary-hover) 0%, #047857 100%);
+}
+
+#backBtn i,
+#downloadPdfBtn i {
+    font-size: 18px;
+}
+
+/* PDF Print Styles */
+@media print {
+    @page {
+        size: 216mm 330mm;
+        margin: 10mm;
+    }
+    
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        width: 216mm !important;
+        height: 330mm !important;
+        border: 0 !important;
+        outline: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .certificate-container {
+        margin: 8mm !important;
+        padding: 12mm 15mm !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        width: calc(100% - 16mm) !important;
+        height: calc(100% - 16mm) !important;
+        min-height: unset !important;
+        max-height: 310mm !important;
+        display: block !important;
+        position: static !important;
+        border: 0 none !important;
+        outline: 0 !important;
+        box-sizing: border-box !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        border-radius: 0 !important;
+    }
+    
+    #pdf-certificate-content {
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        max-height: 310mm !important;
+        overflow: hidden !important;
+    }
+    
+    /* Remove all borders except table borders */
+    html *, body *, .certificate-container, .certificate-container * {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+    }
+
+    *:before, *:after {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    /* Restore specific borders */
+    #certificateProductsTable th,
+    #certificateProductsTable td {
+        border: 1px solid #000 !important;
+        background: #fff !important;
+    }
+    
+    #certificateProductsTable th {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+    }
+    
+    .cert-footer {
+        border-top: 2px solid #000 !important;
+        background: #fff !important;
+    }
+    
+    .cert-header::after {
+        background: #000 !important;
+    }
+    
+    /* Compress spacing for PDF */
+    .cert-header {
+        margin-bottom: 20px !important;
+        padding-bottom: 15px !important;
+    }
+    
+    .recipient-info {
+        margin-bottom: 20px !important;
+        background: #fff !important;
+        padding: 15px !important;
+        border-left: 3px solid #000 !important;
+    }
+    
+    .title-section {
+        margin-bottom: 20px !important;
+        padding: 10px 0 !important;
+    }
+    
+    .title-section h2::after {
+        background: #000 !important;
+    }
+    
+    .reference-info {
+        margin-bottom: 20px !important;
+        background: #fff !important;
+        padding: 15px !important;
+    }
+    
+    .products-table-section {
+        margin-bottom: 25px !important;
+    }
+    
+    .signatures-section {
+        margin-top: 25px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .signature-block {
+        background: #fff !important;
+        padding: 10px !important;
+    }
+    
+    .cert-footer {
+        padding: 10px !important;
+        margin-top: 0 !important;
+    }
+    
+    .pdf-hide {
+        display: none !important;
+    }
+    
+    body > *:not(.certificate-container) {
+        display: none !important;
+    }
+    
+    table {
+        width: 100% !important;
+        table-layout: fixed !important;
+        word-break: break-word !important;
+    }
+    
+    th, td {
+        word-break: break-word !important;
+        font-size: 10px !important;
+        padding: 6px !important;
+    }
+    
+    .signature-block, .company-info, .logos, .reference-info, 
+    .title-section, .recipient-info, .products-table-section {
+        page-break-inside: avoid !important;
+    }
+    
+    /* Print-specific field styles */
+    #certificateDate,
+    #recipientCompanyName,
+    #recipientCompanyAddress,
+    #purchaseOrderNumberRef,
+    #salesOrderNumberRef,
+    #warrantyRecipientCompanyName {
+        background: none !important;
+        color: #000 !important;
+        padding: 0 !important;
+    }
+}
+
+#pdf-certificate-content {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-height: unset;
+    height: unset;
+    overflow: visible;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    page-break-inside: avoid;
+}
+
+#pdf-certificate-content .cert-footer {
+    margin-top: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .certificate-container {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        border-radius: var(--radius-lg);
+        min-height: auto;
+    }
+    
+    .cert-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .logos {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 12px;
+    }
+    
+    .logo-agile,
+    .logo-asus {
+        max-width: 100px;
+    }
+    
+    .title-section h2 {
+        font-size: 24px;
+    }
+    
+    .signatures-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .signature-block {
+        width: 100%;
+    }
+    
+    #certificateProductsTable {
+        font-size: 10px;
+    }
+    
+    #certificateProductsTable th,
+    #certificateProductsTable td {
+        padding: 8px 4px;
+    }
+    
+    .back-btn-topleft,
+    .download-btn-topright {
+        position: static;
+        margin-bottom: 20px;
+    }
+    
+    .back-btn-topleft {
+        margin-right: auto;
+    }
+    
+    .download-btn-topright {
+        margin-left: auto;
+    }
+}
+
+/* Animation for smooth loading */
+.certificate-container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus states for accessibility */
+#backBtn:focus,
+#downloadPdfBtn:focus {
+    outline: 3px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--primary-color);
+    position: relative;
+}
+
+.cert-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+.company-info h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: var(--primary-color);
+    letter-spacing: -0.025em;
+}
+
+.company-info p {
+    font-size: 11px;
+    margin: 4px 0;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.logos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.logo-agile {
+    max-width: 160px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s ease;
+}
+
+.logo-asus {
+    max-width: 130px;
+    max-height: 55px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s ease;
+}
+
+.date-section {
+    text-align: right;
+    font-size: 11px;
+    margin-top: 16px;
+    padding: 8px 12px;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.date-section p {
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+
+.recipient-info {
+    margin-bottom: 32px;
+    font-size: 13px;
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.recipient-info p {
+    margin: 6px 0;
+    line-height: 1.6;
+}
+
+.recipient-info p:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.title-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.title-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.reference-info {
+    font-size: 12px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+.reference-info b {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.products-table-section {
+    margin-bottom: 40px;
+    flex-grow: 1;
+}
+
+#certificateProductsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+#certificateProductsTable th,
+#certificateProductsTable td {
+    border: 1px solid var(--border-medium);
+    padding: 12px 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#certificateProductsTable th {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
+    color: var(--white);
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#certificateProductsTable td {
+    background: var(--white);
+    transition: background-color 0.2s ease;
+}
+
+#certificateProductsTable tbody tr:nth-child(even) td {
+    background: var(--secondary-color);
+}
+
+#certificateProductsTable tbody tr:hover td {
+    background: #e0f2fe;
+}
+
+.signature-footer-flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    min-height: 180px;
+}
+
+.signatures-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 32px;
+    font-size: 12px;
+    gap: 40px;
+}
+
+.signature-block {
+    width: 45%;
+    padding: 20px;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    position: relative;
+}
+
+.signature-block p:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+}
+
+.signature-image-placeholder {
+    height: 60px;
+    border-bottom: 2px solid var(--border-medium);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.signature-image-placeholder::after {
+    content: 'Signature';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.signer-name {
+    font-weight: 600;
+    margin: 8px 0 4px 0;
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.signer-title {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+.signature-image-placeholder {
+    height: 60px;
+    border-bottom: 2px solid var(--border-medium);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.signature-image-placeholder::after {
+    content: 'Signature';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
 
 .cert-footer {
-    border-top: 1px solid blue;
-    padding-top: 10px;
+    border-top: 2px solid var(--primary-color);
+    padding-top: 20px;
     text-align: center;
-    font-size: 8px;
+    font-size: 10px;
     margin-top: auto;
-    line-height: 1.3;
+    line-height: 1.5;
+    background: var(--secondary-color);
+    border-radius: 8px 8px 0 0;
+    position: relative;
 }
+
+.cert-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
 .cert-footer p {
-    margin: 2px 0;
-    
+    margin: 4px 0;
+    color: var(--text-secondary);
+}
+
+.cert-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cert-footer a:hover {
+    text-decoration: underline;
 }
 
 #certificateDate,
@@ -182,7 +996,11 @@ body {
 #purchaseOrderNumberRef,
 #salesOrderNumberRef,
 #warrantyRecipientCompanyName {
-    font-weight: bold;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: rgba(37, 99, 235, 0.05);
 }
 
 /* --- Certificate Print and Download Button Styles --- */
@@ -313,28 +1131,76 @@ body {
 }
 .download-btn-topright {
     position: fixed;
-    top: 32px;
-    right: 32px;
+    top: 24px;
+    right: 24px;
     z-index: 1000;
     text-align: right;
 }
+
 #downloadPdfBtn {
-    background: #28a745;
-    color: #fff;
-    padding: 8px 18px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #15803d 100%);
+    color: var(--white);
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
-    font-size: 15px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
-    min-width: 140px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    font-weight: bold;
+    min-width: 150px;
+    box-shadow: var(--shadow-md);
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
 }
+
+#downloadPdfBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, #15803d 0%, var(--accent-color) 100%);
+}
+
 #downloadPdfBtn i {
-    margin-right: 6px;
+    font-size: 18px;
+    margin: 0;
+}
+
+.back-btn-topleft {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1000;
+    text-align: left;
+}
+
+#backBtn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 150px;
+    box-shadow: var(--shadow-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+#backBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, #1d4ed8 0%, var(--primary-color) 100%);
+}
+
+#backBtn i {
+    font-size: 18px;
+    margin: 0;
 }
 
 #pdf-certificate-content {
@@ -399,33 +1265,169 @@ body {
     
     .signatures-section {
         margin-top: 10px !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 8px !important;    }
+}
+
+/* Highlighted fields styling */
+#certificateDate,
+#recipientCompanyName,
+#recipientCompanyAddress,
+#purchaseOrderNumberRef,
+#salesOrderNumberRef,
+#warrantyRecipientCompanyName {
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: rgba(37, 99, 235, 0.05);
+}
+
+/* Modern scrollbar for certificate container */
+.certificate-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.certificate-container::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+.certificate-container::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: 3px;
+}
+
+.certificate-container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .certificate-container {
+        width: 95vw;
+        max-width: 210mm;
+        margin: 10px auto;
+        padding: 24px 28px;
+    }
+    
+    .back-btn-topleft,
+    .download-btn-topright {
+        position: absolute;
+        top: 10px;
+    }
+    
+    .back-btn-topleft {
+        left: 10px;
+    }
+    
+    .download-btn-topright {
+        right: 10px;
     }
 }
 
-.back-btn-topleft {
-    position: fixed;
-    top: 32px;
-    left: 32px;
-    z-index: 1000;
-    text-align: left;
+@media (max-width: 768px) {
+    .certificate-container {
+        padding: 20px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    
+    .cert-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .logos {
+        align-items: center;
+    }
+    
+    .date-section {
+        text-align: center;
+    }
+    
+    .company-info h1 {
+        font-size: 18px;
+    }
+    
+    .title-section h2 {
+        font-size: 24px;
+    }
+    
+    .signatures-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .signature-block {
+        width: 100%;
+    }
+    
+    #backBtn,
+    #downloadPdfBtn {
+        min-width: 120px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
 }
-#backBtn {
-    background: #007bff;
-    color: #fff;
-    padding: 8px 18px;
-    border: none;
-    border-radius: 4px;
-    font-size: 15px;
-    cursor: pointer;
-    min-width: 140px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+
+/* Loading animation for dynamic content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-#backBtn i {
-    margin-right: 6px;
+
+.certificate-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Print-friendly enhancements */
+@media print {
+    /* Override modern styles for print */
+    .certificate-container {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: white !important;
+    }
+    
+    .cert-header::after,
+    .title-section h2::after,
+    .cert-footer::before {
+        display: none !important;
+    }
+    
+    .cert-header {
+        border-bottom: 1px solid #000 !important;
+    }
+    
+    .cert-footer {
+        border-top: 1px solid #000 !important;
+        background: white !important;
+        border-radius: 0 !important;
+    }
+    
+    /* Simplify colors for print */
+    .recipient-info,
+    .reference-info,
+    .signature-block {
+        background: white !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .date-section {
+        background: white !important;
+        border-left: 2px solid #000 !important;
+    }
+    
+    #certificateProductsTable th {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+    }
 }
 
